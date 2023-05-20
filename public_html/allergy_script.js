@@ -33,7 +33,7 @@ const items = data.items;
 let ingredients = [];
 for (let item of items) {
   let description = item['description'];
-  #Split the description by comma, '(', or ')' to extract the ingredients
+  //Split the description by comma, '(', or ')' to extract the ingredients
   let itemIngredients = description.split(/,|\(|\)/).map(ingredient => ingredient.trim());
   ingredients.push(...itemIngredients);
 }
