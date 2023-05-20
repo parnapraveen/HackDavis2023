@@ -23,8 +23,7 @@ function startWebcam() {
         .catch((error) => {
             console.error('Error accessing the webcam:', error);
         });
-}
-
+} 
 // Start the webcam when the start button is clicked
 startButton.addEventListener('click', () => {
     startWebcam();
