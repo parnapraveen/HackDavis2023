@@ -11,6 +11,49 @@
 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.video-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+  margin-bottom: 0px;
+  /*!height: 100%; */
+  /*!width: 100%; */
+}
+
+.button-container {
+  display: flex;
+  gap: 10px;
+  margin-top: 0px;
+}
+
+.start {
+  padding: 10px 20px;
+  border: none;
+  background-color: #4CAF50;
+  color: white;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.start:hover {
+  background-color: #45a049;
+}
+
+.start:focus {
+  outline: none;
+}
+.mirrored {
+  transform: scaleX(-1);
+}
 
 :root {
   --blue: #79A9F5;
