@@ -55,7 +55,7 @@ captureButton.addEventListener('click', () => {
     sendToClarifaiAPI(base64Image);
 
     // Clear the canvas
-    context.clearRect(0, 0, canvas.width, canvas.height);
+    //context.clearRect(0, 0, canvas.width, canvas.height);
 
     video.classList.remove('mirrored');
     
@@ -70,7 +70,7 @@ function sendToClarifaiAPI(base64Image) {
 
 
 // URL of image to use. Change this to your image.
-const IMAGE_URL = "https://i.ibb.co/v3y8ffL/348354738-195745536266665-4991851399174913275-n.jpg";
+const IMAGE_URL = base64Image;
 
 const raw = JSON.stringify({
   "user_app_id": {
