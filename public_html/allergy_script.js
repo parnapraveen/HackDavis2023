@@ -6,7 +6,7 @@ const headers = {
   'key_type': '3scale'
 };
 
-const refnum = "0028400084048";
+const refnum = "0028400084048"; //change this to the variable
 
 fetch('https://api.upcitemdb.com/prod/trial/lookup?upc=0028400084048', {
   method: 'GET',
@@ -26,7 +26,6 @@ fetch('https://api.upcitemdb.com/prod/trial/lookup?upc=0028400084048', {
 //parsing
 const data = JSON.parse(resp.text);
 const items = data.items;
-
 
 
 //ingred
