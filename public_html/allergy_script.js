@@ -8,7 +8,7 @@ const headers = {
 
 const refnum = "0028400084048"; //change this to the variable
 
-fetch('https://api.upcitemdb.com/prod/trial/lookup?upc=0028400084048', {
+fetch('https://api.upcitemdb.com/prod/trial/lookup?upc=' + refnum, {
   method: 'GET',
   headers: headers
 })

@@ -106,5 +106,4 @@ function sendToClarifaiAPI(base64Image) {
         .then(result => console.log(result.outputs[0].data.regions[0].data.text.raw))
         .catch(error => console.log('error', error));
 
-
 }
