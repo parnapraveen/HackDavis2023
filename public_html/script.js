@@ -42,14 +42,9 @@ captureButton.addEventListener('click', () => {
 
     // Draw the current video frame onto the canvas
     context.drawImage(video, 0, 0, canvas.width, canvas.height);
-<<<<<<< HEAD
-=======
 
     video.style.transform = 'none';
     
-    // Convert the canvas image to a data URL
-    const imageDataURL = canvas.toDataURL('image/png');
->>>>>>> 75e1082e74cabb6f65b5db1b7a56deb5826def0e
 
     // Convert the canvas image to a base64 string
     const imageDataURL = canvas.toDataURL('image/png');
@@ -61,12 +56,9 @@ captureButton.addEventListener('click', () => {
 
     // Clear the canvas
     context.clearRect(0, 0, canvas.width, canvas.height);
-<<<<<<< HEAD
 
-=======
     video.classList.remove('mirrored');
     
->>>>>>> 75e1082e74cabb6f65b5db1b7a56deb5826def0e
     // Resume the video stream
     video.play();
 });
