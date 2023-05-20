@@ -49,10 +49,6 @@ captureButton.addEventListener('click', () => {
     const imageDataURL = canvas.toDataURL('image/png');
     const base64Image = imageDataURL.split('base64,')[1];
 
-
-    console.log(imageDataURL);
-    console.log(base64Image);
-
     //outputImage.src = imageDataURL;
 
     sendToClarifaiAPI(base64Image);
