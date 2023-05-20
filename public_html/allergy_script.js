@@ -59,22 +59,7 @@ tree_nut_allergy = new Set(tree_nut_allergy);
 
 let shell_fish_allergy = ['Shrimp', 'Lobster', 'Crab', 'Crayfish', 'Prawns', 'Langoustines', 'Clams', 'Mussels', 'Oysters', 'Scallops', 'Squid (calamari)', 'Octopus', 'Snails (escargot)', 'Abalone'];
 shell_fish_allergy = shell_fish_allergy.map(x => x.toLowerCase());
-shell_fish_allergy = new Set(shell_fish_allergy);let gluten_allergy = ['wheat flour', 'wheat starch', 'wheat bran', 'wheat germ', 'wheat protein isolate', 'barley malt', 'barley flour', 'barley extract', 'barley malt vinegar', 'rye flour', 'rye bread', 'rye extract', 'rye malt', 'Triticale', 'Semolina', 'Bulgur', 'milk', 'malt vinegar', 'malt extract', 'malt syrup', 'Hydrolyzed wheat protein', 'maltodextrin'];
-gluten_allergy = gluten_allergy.map(x => x.toLowerCase());
-gluten_allergy = new Set(gluten_allergy);
-
-let milk_allergy = ['Lactose', 'milk powder', 'condensed milk', 'evaporated milk', 'buttermilk', 'cheddar', 'mozzarella', 'feta', 'Parmesan', 'Butter', 'clarified butter (ghee)', 'Heavy cream', 'light cream', 'whipped cream', 'sour cream', 'Ice cream', 'gelato', 'sherbet', 'Whey casein', 'whey powder', 'caseinates', 'lactose', 'cakes', 'cookies', 'pastries', 'bread', 'whey'];
-milk_allergy = milk_allergy.map(x => x.toLowerCase());
-milk_allergy = new Set(milk_allergy);
-
-let tree_nut_allergy = ['Almonds', 'Brazil nuts', 'Cashews', 'Hazelnuts (also known as filberts)', 'Macadamia nuts', 'Pecans', 'Pistachios', 'Walnuts', 'Pine nuts', 'Chestnuts'];
-tree_nut_allergy = tree_nut_allergy.map(x => x.toLowerCase());
-tree_nut_allergy = new Set(tree_nut_allergy);
-
-let shell_fish_allergy = ['Shrimp', 'Lobster', 'Crab', 'Crayfish', 'Prawns', 'Langoustines', 'Clams', 'Mussels', 'Oysters', 'Scallops', 'Squid (calamari)', 'Octopus', 'Snails (escargot)', 'Abalone'];
-shell_fish_allergy = shell_fish_allergy.map(x => x.toLowerCase());
 shell_fish_allergy = new Set(shell_fish_allergy);
-
 
 //check allergy function
 function checkAllergies(ingredients, glutenAllergy, milkAllergy, treeNutAllergy, shellFishAllergy) {
