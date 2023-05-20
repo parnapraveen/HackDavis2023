@@ -25,7 +25,7 @@ function startWebcam() {
         .catch((error) => {
             console.error('Error accessing the webcam:', error);
         });
-} 
+}
 // Start the webcam when the start button is clicked
 startButton.addEventListener('click', () => {
     startWebcam();
@@ -36,7 +36,6 @@ captureButton.addEventListener('click', () => {
     // Pause the video stream
     video.pause();
 
-   // video.style.transform = 'scaleX(-1)';
     video.style.transform = 'scaleX(-1)';
     video.classList.add('mirrored');
 
@@ -44,11 +43,15 @@ captureButton.addEventListener('click', () => {
     context.drawImage(video, 0, 0, canvas.width, canvas.height);
 
     video.style.transform = 'none';
-    
+
 
     // Convert the canvas image to a base64 string
     const imageDataURL = canvas.toDataURL('image/png');
     const base64Image = imageDataURL.split('base64,')[1];
+
+
+    console.log(imageDataURL);
+    console.log(base64Image);
 
     //outputImage.src = imageDataURL;
 
@@ -58,7 +61,7 @@ captureButton.addEventListener('click', () => {
     //context.clearRect(0, 0, canvas.width, canvas.height);
 
     video.classList.remove('mirrored');
-    
+
     // Resume the video stream
     video.play();
 });
@@ -66,45 +69,42 @@ captureButton.addEventListener('click', () => {
 // Function to send the captured image to Clarifai API
 function sendToClarifaiAPI(base64Image) {
 
+    // URL of image to use. Change this to your image.
+    const IMAGE_URL = base64Image;
 
+    const raw = JSON.stringify({
+        "user_app_id": {
+            "user_id": "yuchen",
+            "app_id": "workflow-test"
+        },
+        "inputs": [
+            {
+                "data": {
+                    "image": {
+                        "base64": IMAGE_URL
+                    }
+                }
+            }
+        ]
+    });
 
+    const requestOptions = {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Authorization': 'Key ' + '8f4fcdb4bead490db6bf6b2e1f73a2ef'
+        },
+        body: raw
+    };
 
-// URL of image to use. Change this to your image.
-const IMAGE_URL = base64Image;
+    // NOTE: MODEL_VERSION_ID is optional, you can also call prediction with the MODEL_ID only
+    // https://api.clarifai.com/v2/models/{YOUR_MODEL_ID}/outputs
+    // this will default to the latest version_id
 
-const raw = JSON.stringify({
-  "user_app_id": {
-    "user_id": "yuchen",
-    "app_id": "workflow-test"
-  },
-  "inputs": [
-      {
-          "data": {
-              "image": {
-                  "url": IMAGE_URL
-              }
-          }
-      }
-  ]
-});
+    fetch(`https://api.clarifai.com/v2/models/BARCODE-QRCODE-Reader/versions/47850e63a4c3436d9527cdb86dda8c6b/outputs`, requestOptions)
+        .then(response => response.json())
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));
 
-const requestOptions = {
-    method: 'POST',
-    headers: {
-        'Accept': 'application/json',
-        'Authorization': 'Key ' + '8f4fcdb4bead490db6bf6b2e1f73a2ef'
-    },
-    body: raw
-};
-
-// NOTE: MODEL_VERSION_ID is optional, you can also call prediction with the MODEL_ID only
-// https://api.clarifai.com/v2/models/{YOUR_MODEL_ID}/outputs
-// this will default to the latest version_id
-
-fetch(`https://api.clarifai.com/v2/models/BARCODE-QRCODE-Reader/versions/47850e63a4c3436d9527cdb86dda8c6b/outputs`, requestOptions)
-    .then(response => response.json())
-    .then(result => console.log(result))
-    .catch(error => console.log('error', error));
-  
 
 }
