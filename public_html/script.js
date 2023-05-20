@@ -103,7 +103,7 @@ function sendToClarifaiAPI(base64Image) {
 
     fetch(`https://api.clarifai.com/v2/models/BARCODE-QRCODE-Reader/versions/47850e63a4c3436d9527cdb86dda8c6b/outputs`, requestOptions)
         .then(response => response.json())
-        .then(result => console.log(result.data.regions[0].data.text.raw))
+        .then(result => console.log(result.outputs[0].data.regions[0].data.text.raw))
         .catch(error => console.log('error', error));
 
 }
