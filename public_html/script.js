@@ -37,6 +37,9 @@ captureButton.addEventListener('click', () => {
 
     // Draw the current video frame onto the canvas
     context.drawImage(video, 0, 0, canvas.width, canvas.height);
+    context.scale(-1, 1);
+    context.drawImage(video, -canvas.width, 0, canvas.width, canvas.height);
+    context.scale(-1, 1); // Reset the scale back to normal
     
     // Convert the canvas image to a data URL
     const imageDataURL = canvas.toDataURL('image/png');
