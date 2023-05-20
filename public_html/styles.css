@@ -1,3 +1,4 @@
+/*!
 .container {
     display: flex;
     flex-direction: column;
@@ -10,8 +11,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 100px;
-    margin-bottom: 100px;
+    margin-top: 1000px;
+    margin-bottom: 20px;
     height: 100%;
     width: 100%;
 }
@@ -43,3 +44,4 @@ video {
 .start:hover {
     background-color: #45a049;
 }
+*/

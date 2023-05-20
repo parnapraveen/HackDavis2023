@@ -25,8 +25,7 @@ function startWebcam() {
         .catch((error) => {
             console.error('Error accessing the webcam:', error);
         });
-}
-
+} 
 // Start the webcam when the start button is clicked
 startButton.addEventListener('click', () => {
     startWebcam();
@@ -37,8 +36,20 @@ captureButton.addEventListener('click', () => {
     // Pause the video stream
     video.pause();
 
+   // video.style.transform = 'scaleX(-1)';
+    video.style.transform = 'scaleX(-1)';
+    video.classList.add('mirrored');
+
     // Draw the current video frame onto the canvas
     context.drawImage(video, 0, 0, canvas.width, canvas.height);
+<<<<<<< HEAD
+=======
+
+    video.style.transform = 'none';
+    
+    // Convert the canvas image to a data URL
+    const imageDataURL = canvas.toDataURL('image/png');
+>>>>>>> 75e1082e74cabb6f65b5db1b7a56deb5826def0e
 
     // Convert the canvas image to a base64 string
     const imageDataURL = canvas.toDataURL('image/png');
@@ -50,7 +61,12 @@ captureButton.addEventListener('click', () => {
 
     // Clear the canvas
     context.clearRect(0, 0, canvas.width, canvas.height);
+<<<<<<< HEAD
 
+=======
+    video.classList.remove('mirrored');
+    
+>>>>>>> 75e1082e74cabb6f65b5db1b7a56deb5826def0e
     // Resume the video stream
     video.play();
 });
