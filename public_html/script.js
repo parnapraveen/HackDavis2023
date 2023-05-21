@@ -109,19 +109,31 @@ function sendToClarifaiAPI(base64Image) {
         fetch(url)
         .then(response => response.json())
         .then(result => {
+            console.log(result)
+            console.log(result.product.product_name_en)
             console.log(result.product.allergens);
             let newtext = result.product.allergens_hierarchy;
             for (var i = 0; i < newtext.length; i++) {
                 newtext[i] = newtext[i].substring(3);
               }
             console.log(newtext);
-            let utterance = new SpeechSynthesisUtterance(newtext);
+            let output = result.product.product_name_en + " is not in our database";;
+            if (newtext != ""){
+                output = result.product.product_name_en + "containts:" + newtext + ", which are common allergens";
+            }
+
+            let utterance = new SpeechSynthesisUtterance(output);
+            utterance.rate = 0.8;
             window.speechSynthesis.speak(utterance);
         })  
         
 
     })
     .catch(error => {
+        output = "Cannot find a code try again";
+        let utterance = new SpeechSynthesisUtterance(output);
+        utterance.rate = 0.8;
+        window.speechSynthesis.speak(utterance);
         document.getElementById("codevalue").innerHTML = "Cannot find a code try again";
 });
 
