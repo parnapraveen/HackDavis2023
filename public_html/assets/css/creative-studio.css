@@ -37,17 +37,19 @@
 
 .start {
   padding: 20px 45px; /* Increase the padding for a larger button size */
-  border: none;
-  background-color: #e91841; /* #4CAF50 */
+  border: 4px white;
+  background-color: rgba(24, 93, 71, 0.623); /* #4CAF50 */
   color: white;
   font-size: 35px;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  border-radius: 10px;
+  font-family: cursive
 }
 
 .start:hover {
-  background-color: #e92841;
+  background-color: rgb(30, 81, 100);
 }
 
 .start:focus {
