@@ -1,5 +1,3 @@
-# HackDavis2023
-
 # Safe Grub - Allergy Detection Web App
 
 ## Inspiration
