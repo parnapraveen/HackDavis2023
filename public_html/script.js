@@ -106,6 +106,15 @@ function sendToClarifaiAPI(base64Image) {
     .then(result => {
         let code = result.outputs[0].data.regions[0].data.text.raw;
         document.getElementById("codevalue").innerHTML = code;
+        
+        const url = 'https://world.openfoodfacts.org/api/v0/product/' + code;
+        fetch(url)
+        .then(response => response.json())
+        .then(result => {
+            console.log(result);
+        })
+        
+
     })
     .catch(error => {
         document.getElementById("codevalue").innerHTML = "Cannot find a code try again";
