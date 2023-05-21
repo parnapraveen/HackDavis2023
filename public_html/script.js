@@ -1,6 +1,6 @@
 // Get the video element and canvas
 const video = document.getElementById('video');
-const canvas = document.getElementById('canvas');
+// const canvas = document.getElementById('canvas');
 const context = canvas.getContext('2d');
 const outputImage = document.getElementById('output-image'); // Assume you have an img element with id 'output-image'
 
@@ -8,10 +8,6 @@ const outputImage = document.getElementById('output-image'); // Assume you have 
 // Get the start and capture buttons
 const startButton = document.getElementById('start-btn');
 const captureButton = document.getElementById('capture-btn');
-
-
-
-
 
 // Access the webcam
 let stream;
@@ -41,10 +37,11 @@ captureButton.addEventListener('click', () => {
     video.pause();
 
     video.style.transform = 'scaleX(-1)';
-    video.classList.add('mirrored');
+    // video.classList.add('mirrored');
 
     // Draw the current video frame onto the canvas
     context.drawImage(video, 0, 0, canvas.width, canvas.height);
+    // context.clearRect(0, 0, canvas.width, canvas.height);
 
     video.style.transform = 'none';
 
@@ -60,7 +57,7 @@ captureButton.addEventListener('click', () => {
     // Clear the canvas
     //context.clearRect(0, 0, canvas.width, canvas.height);
 
-    video.classList.remove('mirrored');
+    // video.classList.remove('mirrored');
 
     // Resume the video stream
     video.play();
@@ -102,33 +99,8 @@ function sendToClarifaiAPI(base64Image) {
     // this will default to the latest version_id
 
     fetch(`https://api.clarifai.com/v2/models/BARCODE-QRCODE-Reader/versions/47850e63a4c3436d9527cdb86dda8c6b/outputs`, requestOptions)
-    .then(response => response.json())
-    .then(result => {
-        let code = result.outputs[0].data.regions[0].data.text.raw;
-        document.getElementById("codevalue").innerHTML = code;
-    })
-    .catch(error => {
-        document.getElementById("codevalue").innerHTML = "Cannot find a code try again";
-});
-
-
-fetch(`https://api.upcitemdb.com/prod/trial/lookup?upc=028400035729`)
-  .then(res => {
-    if (!res.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
-    }
-    return response.json();
-  })
-  .then(data => {
-    // Handle the response data
-    console.log(data);
-  })
-  .catch(error => {
-    // Handle any errors
-    console.error(error);
-  });
-
+        .then(response => response.json())
+        .then(result => console.log(result.outputs[0].data.regions[0].data.text.raw))
+        .catch(error => console.log('error', error));
 
 }
-
-
