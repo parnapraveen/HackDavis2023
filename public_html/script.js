@@ -102,10 +102,10 @@ function sendToClarifaiAPI(base64Image) {
     // this will default to the latest version_id
 
     fetch(`https://api.clarifai.com/v2/models/BARCODE-QRCODE-Reader/versions/47850e63a4c3436d9527cdb86dda8c6b/outputs`, requestOptions)
-    //.then(response => response.json())
+    .then(response => response.json())
     .then(result => {
         let code = result.outputs[0].data.regions[0].data.text.raw;
-        document.getElementById("codevalue").innerHTML = "The code is: " + code;
+        document.getElementById("codevalue").innerHTML = code;
     })
     .catch(error => {
         document.getElementById("codevalue").innerHTML = "Cannot find a code try again";
