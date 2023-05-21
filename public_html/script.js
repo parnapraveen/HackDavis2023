@@ -106,6 +106,14 @@ function sendToClarifaiAPI(base64Image) {
     .then(result => {
         let code = result.outputs[0].data.regions[0].data.text.raw;
         document.getElementById("codevalue").innerHTML = code;
+
+        let upclink = "https://api.upcitemdb.com/prod/trial/lookup?upc=" + code;
+        fetch(upclink)
+        .then(response => response.json())
+        .then(result => {
+            console.log(result)
+        })
+
     })
     .catch(error => {
         document.getElementById("codevalue").innerHTML = "Cannot find a code try again";
