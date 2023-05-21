@@ -92,7 +92,7 @@ function sendToClarifaiAPI(base64Image) {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
-            'Authorization': 'Key ' + '8f4fcdb4bead490db6bf6b2e1f73a2ef'
+            'Authorization': 'Key ' + '36ac13c8a57c4b768af0d129ed924cb9'
         },
         body: raw
     };
