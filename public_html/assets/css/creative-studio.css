@@ -12147,3 +12147,9 @@ margin:0 5px;
 .our-webcoderskull .cnt-block .follow-us li .fa:hover{ 
  color:#025a8e;
 }
+
+.header2 img {
+  float: left;
+  width: 800px;
+  height: 400px;
+}
