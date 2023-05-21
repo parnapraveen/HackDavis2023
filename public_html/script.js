@@ -9,6 +9,10 @@ const outputImage = document.getElementById('output-image'); // Assume you have 
 const startButton = document.getElementById('start-btn');
 const captureButton = document.getElementById('capture-btn');
 
+
+
+
+
 // Access the webcam
 let stream;
 function startWebcam() {
@@ -98,10 +102,16 @@ function sendToClarifaiAPI(base64Image) {
     // this will default to the latest version_id
 
     fetch(`https://api.clarifai.com/v2/models/BARCODE-QRCODE-Reader/versions/47850e63a4c3436d9527cdb86dda8c6b/outputs`, requestOptions)
-    .then(response => response.json())
+    //.then(response => response.json())
     .then(result => {
         let code = result.outputs[0].data.regions[0].data.text.raw;
-        console.log(code);
+        document.getElementById("codevalue").innerHTML = "The code is: " + code;
     })
-    .catch(error => console.log("Cannot find a code try again"));
+    .catch(error => {
+        document.getElementById("codevalue").innerHTML = "Cannot find a code try again";
+});
+
+
 }
+
+
