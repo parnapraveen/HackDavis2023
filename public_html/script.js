@@ -126,27 +126,6 @@ function sendToClarifaiAPI(base64Image) {
 });
 
 
-<<<<<<< HEAD
-fetch(`https://api.upcitemdb.com/prod/trial/lookup?upc=028400035729`)
-  .then(res => {
-    if (!res.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
-    }
-    return response.json();
-  })
-  .then(data => {
-    // Handle the response data
-    console.log(data);
-  })
-  .catch(error => {
-    // Handle any errors
-    console.error(error);
-  });
-
-
-}
-=======
 }
 
 
->>>>>>> 8c17c4818099aea33a6833acb3e46d6a431491d8
