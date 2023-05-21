@@ -38,18 +38,18 @@
 .start {
   padding: 20px 45px; /* Increase the padding for a larger button size */
   border: 4px white;
-  background-color: rgba(24, 93, 71, 0.623); /* #4CAF50 */
+  background-color: #358b52; /* #4CAF50 */
   color: white;
   font-size: 35px;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  border-radius: 10px;
-  font-family: cursive
+  border-radius: 50px;
+  font-family: Arial, sans-serif
 }
 
 .start:hover {
-  background-color: rgb(30, 81, 100);
+  background-color: #ff214f;
 }
 
 .start:focus {
