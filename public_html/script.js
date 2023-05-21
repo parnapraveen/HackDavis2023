@@ -104,14 +104,29 @@ function sendToClarifaiAPI(base64Image) {
     fetch(`https://api.clarifai.com/v2/models/BARCODE-QRCODE-Reader/versions/47850e63a4c3436d9527cdb86dda8c6b/outputs`, requestOptions)
     .then(response => response.json())
     .then(result => {
-        let code = result.outputs[0].data.regions[0].data.text.raw;
-        document.getElementById("codevalue").innerHTML = code;
+        let code = result.outputs[0].data.regions[0].data.text.raw;        
+        const url = 'https://world.openfoodfacts.org/api/v0/product/' + code;
+        fetch(url)
+        .then(response => response.json())
+        .then(result => {
+            console.log(result.product.allergens);
+            let newtext = result.product.allergens_hierarchy;
+            for (var i = 0; i < newtext.length; i++) {
+                newtext[i] = newtext[i].substring(3);
+              }
+            console.log(newtext);
+            let utterance = new SpeechSynthesisUtterance(newtext);
+            window.speechSynthesis.speak(utterance);
+        })  
+        
+
     })
     .catch(error => {
         document.getElementById("codevalue").innerHTML = "Cannot find a code try again";
 });
 
 
+<<<<<<< HEAD
 fetch(`https://api.upcitemdb.com/prod/trial/lookup?upc=028400035729`)
   .then(res => {
     if (!res.ok) {
@@ -130,3 +145,8 @@ fetch(`https://api.upcitemdb.com/prod/trial/lookup?upc=028400035729`)
 
 
 }
+=======
+}
+
+
+>>>>>>> 8c17c4818099aea33a6833acb3e46d6a431491d8
